@@ -288,7 +288,7 @@ pipeline {
                                 
                                 # Run semantic-release
                                 semantic-release publish \
-                                    --verbosity=DEBUG \
+                                    --debug \
                                     --hvcs=github \
                                     --hvcs-token="${GH_TOKEN}"
                             '''
