@@ -286,10 +286,8 @@ pipeline {
                                 echo "Running semantic-release..."
                                 export GH_TOKEN="${GH_TOKEN}"
                                 
-                                # Run semantic-release
-                                semantic-release publish \
-                                    --hvcs=github \
-                                    --hvcs-token="${GH_TOKEN}"
+                                # Run semantic-release (v8+ syntax)
+                                semantic-release publish
                             '''
                         } else if (params.RELEASE_MODE == 'manual') {
                             // Manual release
