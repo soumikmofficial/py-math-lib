@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.9'
+            args '-u root'
+        }
+    }
     
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: '', description: 'Branch to build (leave empty for auto-detection)')
@@ -8,6 +13,8 @@ pipeline {
         booleanParam(name: 'DRY_RUN', defaultValue: false, description: 'Perform a dry run without publishing')
         booleanParam(name: 'SKIP_TESTS', defaultValue: false, description: 'Skip running tests')
     }
+
+    
     
     environment {
         // Python environment
