@@ -13,7 +13,7 @@ pipeline {
     
     environment {
         // Python environment
-        PYTHON_VERSION = '3.9'
+        PYTHON_VERSION = '3'
         VIRTUAL_ENV = "${WORKSPACE}/venv"
         PATH = "${VIRTUAL_ENV}/bin:${PATH}"
         
