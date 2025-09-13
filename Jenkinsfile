@@ -217,9 +217,10 @@ pipeline {
                 script {
                     // Check if there are changes since last tag
                     def hasChanges = sh(
-                        script: "git diff --quiet HEAD $(git describe --tags --abbrev=0 2>/dev/null || echo 'HEAD~1') || echo 'true'",
+                        script: '''git diff --quiet HEAD $(git describe --tags --abbrev=0 2>/dev/null || echo 'HEAD~1') || echo 'true' ''',
                         returnStdout: true
                     ).trim() == 'true'
+
                     
                     if (!hasChanges) {
                         echo "No changes detected since last release. Skipping release."
